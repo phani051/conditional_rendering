@@ -1,12 +1,17 @@
 import React from "react";
 import Input from "./Input";
 
-function Login() {
+function Login(props) {
   return (
     <form className="form">
       <Input type="text" placeholder="Username" />
       <Input type="password" placeholder="Password" />
-      <button type="submit">Login</button>
+
+      {!props.registerinfo && (
+        <Input type="password" placeholder="Confirm Password" />
+      )}
+
+      <button type="submit">{props.registerinfo ? "Login" : "Register"}</button>
     </form>
   );
 }
